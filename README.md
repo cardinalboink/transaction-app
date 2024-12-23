@@ -1,50 +1,58 @@
-# Welcome to your Expo app 👋
+Transaction App
+This is a simple mobile app built with React Native and Expo that displays transaction history with authentication features. It includes a variety of functionalities like transaction sorting, viewing transaction details, and biometric authentication.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Features
+Biometric Authentication: Users must authenticate using biometrics (Fingerprint/Face ID) to view the transaction history.
+Transaction Display: Displays a list of transactions with amount, date, description, and type.
+Transaction Sorting: Sort transactions by date, amount, or type.
+Transaction Detail View: View detailed information for a selected transaction.
+Amount Masking: Toggle between showing or hiding the transaction amounts for security.
+Prerequisites
+Before setting up the project, make sure you have the following installed:
 
-## Get started
+Node.js: Ensure you have Node.js installed (v14 or higher).
+Expo CLI: The Expo CLI is required for running the project in development mode.
+Install Expo CLI
+If you don't have Expo CLI installed, you can install it globally via npm:
 
-1. Install dependencies
+bash
+Copy code
+npm install -g expo-cli
+Setup Instructions
+1. Clone the Repository
+Clone this repository to your local machine:
 
-   ```bash
-   npm install
-   ```
+bash
+Copy code
+git clone https://github.com/cardinalboink/transaction-app.git
+Navigate to the project directory:
 
-2. Start the app
+bash
+Copy code
+cd transaction-app
+2. Install Dependencies
+Once you've cloned the repository, install the project dependencies:
 
-   ```bash
-    npx expo start
-   ```
+bash
+Copy code
+npm install
+3. Start the Expo Project
+To start the development server, run the following command:
 
-In the output, you'll find options to open the app in a
+bash
+Copy code
+expo start
+This will open the Expo developer tools in your default web browser. You can now scan the QR code using the Expo Go app (available on iOS and Android) or press i to run the app in an iOS simulator (or a for an Android emulator).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+4. Authentication Setup
+This app uses Expo's biometric authentication. Ensure your device supports fingerprint or face recognition for biometric authentication to work correctly.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. Running on a Device or Emulator
+If you prefer to test it on an emulator or real device, follow the steps below:
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+iOS Device/Simulator:
+Open the Expo Go app and scan the QR code.
+Or press i to run it on an iOS simulator.
+Android Device/Emulator:
+Open the Expo Go app and scan the QR code.
+Or press a to run it on an Android emulator.
