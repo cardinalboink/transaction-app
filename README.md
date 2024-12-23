@@ -1,4 +1,5 @@
-Transaction App
+**Transaction App**
+
 This is a simple mobile app built with React Native and Expo that displays transaction history with authentication features. It includes a variety of functionalities like transaction sorting, viewing transaction details, and biometric authentication.
 
 Features
