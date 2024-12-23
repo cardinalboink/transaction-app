@@ -6,6 +6,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import { useState } from "react";
 import transactionsData from "../transactionsData.json";
@@ -27,6 +28,8 @@ export default function App() {
   const [sortDirection, setSortDirection] = useState<string>("asc"); // default sort ascending
   const { authenticate, checkDeviceForHardware, checkForBiometrics } =
     useAuthentication();
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const toggleAmountVisibility = () => {
     setShowAmount(!showAmount);
@@ -87,6 +90,15 @@ export default function App() {
     setTransactions(sortedTransactions);
   };
 
+  const filteredTransactions = transactions.filter(
+    (transaction) =>
+      transaction.description
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase()) ||
+      transaction.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      transaction.amount.toString().includes(searchQuery)
+  );
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -123,8 +135,16 @@ export default function App() {
                 onPress={toggleAmountVisibility}
               />
               <SortButtons onSort={sortTransactions} />
+              ``
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Search by description, type, or amount"
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                placeholderTextColor="#6b7280"
+              />
               <FlatList
-                data={transactions}
+                data={filteredTransactions}
                 renderItem={({ item }) => (
                   <TransactionItem
                     transaction={item}
@@ -187,5 +207,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  searchInput: {
+    marginVertical: 16,
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ccc",
+    backgroundColor: "#fff",
   },
 });
