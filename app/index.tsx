@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Button, Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { useAuthentication } from "@/hooks/useAuthentication"; // Authentication hook
-import { TransactionHistory } from "./TransactionHistory"; // Import TransactionHistory
+import { useAuthentication } from "@/hooks/useAuthentication";
+import { TransactionHistory } from "./TransactionHistory";
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
@@ -16,14 +16,14 @@ export default function App() {
     }
     checkDeviceForHardware();
     checkForBiometrics();
-    authenticate(setAuthenticated); // Authenticate user
+    authenticate(setAuthenticated);
   };
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       {authenticated ? (
-        <TransactionHistory /> // Show transaction history after authentication
+        <TransactionHistory />
       ) : (
         <Text style={styles.authMessage}>
           Please authenticate to view transactions.
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    justifyContent: "flex-start", // Content aligns from top
+    justifyContent: "flex-start",
   },
   authButton: {
     paddingVertical: 12,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     marginVertical: 10,
-    marginTop: "auto", // This pushes the button to the bottom of the screen
+    marginTop: "auto",
   },
   buttonText: {
     color: "white",
